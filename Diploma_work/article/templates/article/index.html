@@ -1,0 +1,59 @@
+<style>
+table a{
+background-color:black;
+color:white;
+padding:5px;
+border-radius:6px;
+ min-width:125px;
+min-height:33px;margin:-13 -150 0 -130;
+ position: absolute;opacity: 0;
+}
+</style>
+{% extends 'article/list_types.html' %}
+{% block content %}
+{%if type_selected == 0 %}<div class="content">
+<table class="title" style="margin-top:50px;margin-left:403px;" >
+    <tr><td><h1> Ғылыми жұмыстардың жалпы сандары</h1></td></tr></table>
+
+	<table class="table_sort"  border="1" id="cont" style="width:1200px"><thead>
+<tr><th >Ғылыми жұмыстың авторы</th>
+<th style="">Ғылыми жұмыстардың жалпы саны</th>
+<th>Жалпы балл суммасы</th>
+    <th>Орташа балл</th>
+<th>Соңғы өзгеріс еңгізілген уақыты</th></tr></thead>
+<tbody>
+{% for c in counts %}
+<tr><td>{{ c.author }}<a href="{{ c.get_absolute_url }}" ></a></td>
+<td><p style="font-size:24px">{{ c.total }}</p></td>
+<td><p style="font-size:24px">{{c.sum}}</p></td>
+    <td><p style="font-size:24px">{{c.avg}}</p></td>
+                          <td><p align="center" style="font-size:16px">{{c.time_update | date:"Y.m.d | H:i "}}</p>
+                          </td></tr></tr>
+  {% endfor %}
+</tbody>
+	    </table>
+</div>
+{% else %}<div class="content">
+    <table class="title"  style="margin-top:50px;margin-left:433px;">
+    {% for t in types %}
+         {%if  t.pk == type_selected %}<tr> <th><h1 align="center" style="font-size:50px"> {{t.name}} </h1></th></tr>
+  {%endif%} {% endfor %} </table>
+
+	<table class="table_sort" border="1" id="cont" style="width:1200px">
+                        <thead>
+                      <tr><th>Ғылыми жұмыстың авторы</th>
+                          {% for t in types %}
+                          {%if  t.pk == type_selected %}<th>{{t.name}} түріне сай ғылыми жұмыстардың  саны</th>
+                            <th>Жалпы балл суммасы</th>
+                             <th>Орташа балл</th>{%endif%}{% endfor %}
+                            <th>Соңғы өзгеріс еңгізілген уақыты</th></tr>
+                            </thead>
+                            <tbody>{% for c in counts_type %}{%if c.type_id == type_selected %}
+                         <tr><td>{{ c.author }}<a href="{{ c.get_absolute_url }}"></a></td>
+                         <td><p style="font-size:24px">{{ c.total }}</p></td>
+                         <td><p style="font-size:24px">{{c.sum}}</p></td>
+                          <td><p style="font-size:24px">{{c.avg}}</p></td>
+                         <td><p align="center" style="font-size:16px">{{c.time_update | date:"Y.m.d | H:i "}}</p></tr>{%endif%}{% endfor %}
+</tbody></table></div>
+{%endif%}
+{% endblock %}

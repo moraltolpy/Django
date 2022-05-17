@@ -1,0 +1,75 @@
+{% load static %}
+
+form{margin-left: 0%; text-align:center;  min-width:400px;    padding-top: 10px; padding-bottom: 30px;}
+
+form p{color: white; font-size: 28px;margin: 5px; }
+
+input {  display: inline-block; border: 0px solid red;   font-size:20px ;
+min-width:750px;min-height:60px; margin: 20px; }
+
+textarea {  display: inline-block; border: 2px solid #eee;  padding: 10px 15px;
+
+  font-family: Calibri , sans-serif;  font-size: 22px;margin: 0 10 20 10;}
+
+
+select {  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  cursor:pointer;
+  background-color:LimeGreen;
+  color: white;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 10px;
+  margin-bottom: 30px;
+  border-radius: 30px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button;
+  text-margin-left:120px;
+  font-size: 28px;
+}
+
+select::before,
+select::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+select::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+select::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+}
+
+select select[disabled] {
+  color: indigo;
+}
+
+select select[disabled]::after {
+  color: lightblue;
+}
+
+select::before {
+  background-color: indigo;
+}
+
+select::after {
+  color: blue;
+}
+

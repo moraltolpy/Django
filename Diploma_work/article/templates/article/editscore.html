@@ -1,0 +1,26 @@
+{% extends 'article/list_types.html' %}
+{% load static %}{% block content %}<div class="content" >
+      	<table class="table_sort" border="0" cellpadding="0" style="width:1200px;">
+        <tr> <th>Ғылыми жұмыстың типі</th>
+       <th>Ғылыми жұмыстың тақырыбы</th>
+       <th>Ғылыми жұмыстың сипаттамасы</th>
+       <th>Ғылыми жұмыстың өткізілген уақыты</th></tr>
+                       <tr><td><p align="center">{{ po.type }}</p></td>
+                          <td><p align="center">{{ po.title }}</p></td>
+                          <td><p align="left">{{ po.subject }}</p></td>
+                          <td><p align="center">{{po.time_create | date:"d.m.Y | H:i "}}</p></td>
+                       </tr>
+    </table></div>{% endblock %}
+{% block form %}
+
+<div class="form"  style="margin-top:-520px;margin-left:350px;max-width:1050px;padding-top:20px; border-radius:50px;">
+<h1 align="center" style="margin-left:-0.2px;background-color:white; color:black;">Ғылыми жұмысты бағалау (<100)</h1>
+  <form method="POST">
+        {% csrf_token %}
+                <p>Балл:</p>
+              <p>
+            <input type="number" name="score" value="{{po.score}}" />
+        </p>
+        <input type="submit" value="Сақтау" >
+    </form></div>
+  {% endblock %}

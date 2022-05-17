@@ -1,0 +1,15 @@
+
+
+
+button {}
+
+button:hover{   transform: scale(1.05);    transition: all .3s ease;}
+
+
+.alert-warning {display:inline-block;    font-weight:20px;    line-height:1.5;   text-align:center;
+
+    text-decoration:none;    vertical-align:middle;    cursor:pointer;    background-color:transparent;
+
+    border:1px solid transparent;   border-radius:12px;
+
+    transition:color .15s    color:white;    background-color:LimeGreen;    }

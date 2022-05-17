@@ -1,0 +1,60 @@
+table h1{color:black; font-size:30px;margin-top: 15px;padding:0px;margin-left:0px;margin-bottom:20px;}
+table td a{text-decoration: none;       color: black; font:italic 26x bold "Times New Roman", Times, serif ;border-color:blue;}
+.table_sort td a:hover{color: black;    transform: scale(1.15);    transition: all .6s ease;}
+.title{margin-top:50px;border-radius:50px;margin-left:330px;}
+.title tr{background-color:#ffddff;}
+.title th h1{margin-top:15px;}
+
+table #edit{background-color:black;
+color:white;
+padding:5px;
+border-radius:6px; }
+
+table #hredit{margin-top:15px;margin-bottom:-5px;margin-left:-13.5px;margin-right:-13.5px;background-color:black;height:2px;}
+
+table #score{background-color:black;color:white;padding:20px;border-radius:9px;}
+
+.table_sort td,
+.table_sort th {padding:13px;
+    text-align: center;
+    border: 2px solid black;}
+
+.table_sort th {margin-left:320px;
+    color:black;border-color:blue;
+    background-color:#ffddff;
+    cursor: pointer;}
+.table_sort td{border-color:blue;}
+
+.table_sort tbody tr {    background: white;}
+
+th.sorted[data-order="1"],
+th.sorted[data-order="-1"] {    position: relative;}
+
+th.sorted[data-order="1"]::after,
+th.sorted[data-order="-1"]::after {    right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: absolute;}
+
+th.sorted[data-order="-1"]::after {	content: "▼"}
+
+th.sorted[data-order="1"]::after {	content: "▲"}
+#students{font-size:24px ; }
+
+.table_sort {width:1200px;max-width: 1200px;}
+
+#post{font-size:16px; }
+
+table{
+    padding-top:10px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom:10px;
+    margin-left:280px;    margin-top:130px;
+    margin-right:70px;  top:100px;
+    border-spacing: 0px 0px;
+    min-width: 890px;   max-width: 1200px;
+    font-size:20px ;right: 20px;
+    background-color:White;
+    text-align:center;font:italic 60px bold "Times New Roman", Times, serif ; }
+

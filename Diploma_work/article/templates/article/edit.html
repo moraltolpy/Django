@@ -1,0 +1,35 @@
+{% extends 'article/list_types.html' %}
+{% load static %}{% block content %}<div class="content" >
+  	<table class="table_sort" border="1" cellpadding="0" style="margin-top:50px;">
+        <tr><td colspan="4" class="op">{{po.author}} авторының өткізген жұмысын өзгерту</td></tr></table>
+      	<table class="table_sort" border="0" cellpadding="0" style="margin-top:40px;">
+       <th>Ғылыми жұмыстың типі</th>
+       <th>Ғылыми жұмыстың тақырыбы</th>
+       <th>Ғылыми жұмыстың сипаттамасы</th>
+       {% if po.time_update == po.time_create %}
+            <th>Ғылыми жұмыстың соңғы өткізілген күні мен уақыты</th>
+       {% else %}<th>Ғылыми жұмыстың соңғы өзгеріс енгізілген күні мен уақыты</th>{% endif %}
+
+
+                       <tr><td><p align="center">{{ po.type }}</p></td>
+                          <td><p align="center">{{ po.title }}</p></td>
+                          <td><p align="left">{{ po.subject }}</p></td>
+                          <td><p align="center">{{po.time_update | date:"Y.m.d | H:i "}}</p></td>
+                       </tr>
+    </table></div>{% endblock %}
+{% block form %}<div class="form"  style="margin-top:-400px;margin-left:350px;max-width:1050px;padding-top:20px; border-radius:50px;">
+    <h1 align="center" style="margin-left:-0.2px;background-color:white; color:black;">Өзгерісті енгізіңіз</h1>
+
+  <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Ғылыми жұмыстың тақырыбы</label><br>
+            <input type="text" name="title" value="{{po.title}}" />
+        </p>
+        <p>
+            <label>Ғылыми жұмыстың сипаттамасы</label><br>
+            <input type="text" name="subject" value="{{po.subject}}" />
+        </p>
+        <input type="submit" value="Сақтау" >
+    </form></div>
+  {% endblock %}

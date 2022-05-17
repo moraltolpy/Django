@@ -1,0 +1,20 @@
+{% extends 'article/list_types.html' %}
+{% load static %}
+
+{% block form %}
+
+<div class="form"  style="margin-top:100px;margin-left:270px;max-width:1200px;padding-top:20px; border-radius:50px;">
+    <h1 align="center" style="margin-left:-0.2px;background-color:white; color:black;">Ғылыми жұмысты енгізу</h1>
+<form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-error">{{ form.non_field_errors }}</div>
+
+{% for f in form %}
+<label class="form-label" for="{{ f.id_for_label }}"><p>{{f.label}}</p>: </label><br>{{ f }}
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit" class="alert-warning"><p>Енгізу</p></button>
+</form></div>
+
+{% endblock %}

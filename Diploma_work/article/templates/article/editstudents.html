@@ -1,0 +1,16 @@
+{% extends 'article/list_types.html' %}
+{% load static %}
+{% block form %}
+<div class="form"  >
+    <h1 align="center" style="margin-left:-0.2px;background-color:white; color:black;">Шетел студенттердің санын өзгерту</h1>
+  <form method="POST">
+        {% csrf_token %}
+      <p align="center">
+            <h1 align="center" style="color:white;">Шетел студенттердің санын өзгертіңіз</h1>
+        </p>
+              <p>
+            <input type="number" name="students" value="{{st.students}}" />
+        </p>
+        <input type="submit" value="Сақтау" >
+    </form></div>
+  {% endblock %}

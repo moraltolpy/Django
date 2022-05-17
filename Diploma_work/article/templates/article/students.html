@@ -1,0 +1,20 @@
+{% extends 'article/list_types.html' %}
+{% load static %}
+{% load article_tags %}
+{% block title %}<table class="title"  style="navy">
+    <tr ><th><h1 style="margin-top:15px;">Шетел студенттердің саны</h1></th></tr></table>
+{% endblock %}
+{% block content %}
+{%if type_selected == 0 %}
+<div class="content">
+	<table class="table_sort" id="students" border="1" style="navy"><thead>
+                   <tr><th>Қолданушылар тізім</th>
+                       <th>Шетел студенттер саны</th>
+                       <th>Соңғы өзгеріс уақыты</th></tr>
+    </thead>
+        <tbody>{% for s in students %}<tr>
+    <td><p align="center">{{ s.author }}</p></td>
+    <td><p align="center">{{ s.students }}</p></td>
+    <td><p align="center">{{s.time_update | date:"Y.m.d | H:i "}}</p></td>
+</tr>  {% endfor %}</tbody>	    </table>
+</div>{%endif%}{% endblock %}

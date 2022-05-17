@@ -1,0 +1,66 @@
+{% extends 'article/list_types.html' %}
+{% load static %}
+
+{% block title %}<table style="margin-top:50px;margin-left:423px;" class="title">
+    <tr ><th><h1 style="margin-top:10px;">{{post.author}}</h1></th></tr>
+    <tr>{% for s in students %}{% if post.aut_username == s.aut_username %}
+        <th><h1 style="margin-top:10px;">Шетел студенттер саны:{{s.students}}</h1></th>
+    {%endif%}{% endfor %}
+    </tr></table>
+{% endblock %}
+
+
+{% block content %}
+	<table class="table_sort" style="margin-left:283px;margin-top:25px; ">
+                                <thead><tr>
+                          <th style="cursor: pointer;">Ғылыми жұмыстың түрі</th>
+                          <th style="cursor: pointer;">Өткізілген ғылыми жұмыстардың  саны</th>
+                          <th style="cursor: pointer;">Өткізген жұмыстардың орташа бағасы</th>
+                                </tr></thead>
+        <tbody>
+                             {% for c in counts_type %}
+                                     {% if post.aut_username == c.aut_username  %}
+                          <tr><td><p align="center">{{ c.type }}</p></td>
+                              <td><p align="center">{{ c.total }}</p></td>
+                              <td><p align="center">{{ c.avg }}</p></td></tr>{%endif%}{% endfor %}</tbody></table>
+
+{% if request.user.username == post.aut_username or request.user.is_superuser or request.user.is_staff %}
+	<table class="table_sort" id="post" border="1" cellpadding="0" style="margin-top:40px;">
+	   <thead><tr ><th colspan="7" class="op">"{{post.author}}" авторының ғылыми жұмыстары</th></tr>
+       <th>Типі</th>
+       <th>Тақырыбы</th>
+       <th>Сипаттамасы</th>
+       <th>Өткізілген уақыты</th>
+       <th>Өзгеріс енгізілген уақыты</th>
+       <th>Баға</th>
+       {% if request.user.is_staff or request.user.is_superuser and request.user.username != post.aut_username %}<th>Ғылыми жұмысты бағалау</th>
+       {% else %}<th>Ғылыми жұмысты жою немесе өзгерту</th>{% endif %}</tr>
+       </thead>
+
+{% for p in posts %}{% if post.aut_username == p.aut_username and p.aut_username  %}
+
+                       <tr><td><p align="center">{{ p.type }}</p></td>
+                          <td><p align="left">{{ p.title }}</p></td>
+                          <td><p align="left">{{ p.subject }}</p></td>
+                          <td><p align="center" style="font-size:18px">{{p.time_create | date:"Y.m.d   H:i "}}</p></td>
+                           <td><p align="center" style="font-size:18px">{{p.time_update | date:"Y.m.d   H:i "}}</p></td>
+                           <td><p align="center" style="font-size:20px">{{p.score}}</p></td>
+                          <td>{% if request.user.username == post.aut_username %}
+                              <a href="edit/{{p.id}}" id="edit" >Өзгерту</a>
+                              <br>
+                              <hr id="hredit"><br>
+                              <a href="delete/{{p.id}}" id="edit">Жою</a></td>
+                              {% elif request.user.is_staff and request.user.is_superuser %}<a href="editscore/{{p.id}}" id="score" >Бағалау</a>{% endif %}
+                       </tr>{% endif %}{% endfor %}
+    </table>
+
+
+    {% else %}<table>
+    <tr class="table_sort"><th><h1>Cізге бұл автордың жұмысын көруге рұқсат берілмеген</h1></th></tr>
+   </table>
+{% endif %}
+
+{% endblock %}
+<!--
+
+ -->

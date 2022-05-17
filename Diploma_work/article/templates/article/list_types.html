@@ -1,0 +1,11 @@
+{% extends 'article/base.html' %}
+{% block list_types %}
+<sel><a href="{% url 'students' %}"><li  style="background-color:navy"><p5>Шетел студенттердің саны</p5></li></a><hr></sel>
+{% if type_selected == 0 %}
+<sel><a href="{% url 'home' %}" ><li><p5  style="color:white;">Барлық жұмыстар түрі</p5></li></a><hr></sel>
+{% else %}	<unsel><a href="{% url 'home' %}"><li><p5>Барлық жұмыстар түрі</p5></li></a><hr></unsel>
+				{% endif %}	{% for t in types %}{% if t.article__count > 0 %}	{% if t.pk == type_selected %}
+			<sel><a href="{{ t.get_absolute_url }}" ><li><p5>{{t.name}}</p5  ></li></a><hr></sel>
+	{% else %}
+<unsel><a href="{{ t.get_absolute_url }}" ><li><p5>{{t.name}}</p5></li></a><hr></unsel>
+	{% endif %}{% endif %}{% endfor %}		{% endblock %}

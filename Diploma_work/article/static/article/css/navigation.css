@@ -1,0 +1,25 @@
+.nav { width: 190px;    min-width: 130px;    height: 100%;    position: fixed;    top: 0;    bottom: 0;
+
+    margin: 0; left: 0px;    padding: 15px 20px;    background-color: #dfc;;   no-repeat right bottom ;}
+
+.nav p5{font-style: italic; display: block; margin-left:25px;}
+.nav ul {margin-left:-75px ;list-style-type: None;}
+.nav ul hr { height: 3px;  margin-left:-40px; margin-right:-20px;  margin-top:7px ; position:fixed    margin: 0 auto;background: #000}
+
+.nav a{font:italic bold "Times New Roman", Times, serif ;  font-style: italic; }
+.nav a:hover{color:red;}
+
+sel a li {background-color:black;margin-top: 10px;margin-right: -20px;}
+sel p5{ color:white; }
+
+unsel a li {background-color:white;  margin-top: 10px;margin-right: -20px; }
+unsel p5{margin-left: 25px;color:black;  }
+
+
+
+
+.nav ul unsel{background-color:white;color:black;}
+.nav button{width:180px;min-height: 40px; margin:-20 20 20 37;background: #000;border-radius:8px;}
+.nav img {margin-left: 60px;    font-weight: bold;    position: relative;     width: 60px;
+
+    float: center;      top: 10px;}

@@ -1,0 +1,19 @@
+{% extends 'article/list_types.html' %}
+
+{% block form %}
+
+<div class="form"  >
+<h1 align="center" style="margin-left:-0.2px;background-color:white; color:black;">{{title}}</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+{% for f in form %}
+<p><label class="form-label" for="{{ f.id_for_label }}" >{{f.label}}: <br></label>    {{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+
+    <button type="submit" class="alert-warning"><p>Тіркелу</p></button>
+</form>
+</div>
+{% endblock %}
